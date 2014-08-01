@@ -40,8 +40,30 @@ namespace Ruffing;
  *     superglobal array, this function will return the element at that index.
  *     Otherwise, it will return <code>null</code>.
  */
-function filter_session($index) {
+function filter_session($index)
+{
 	$v = isset($_SESSION[$index]) ? $_SESSION[$index] : null;
+
+	return $v;
+}
+
+/**
+ * Acts similarly to the built-in <code>filter_input</code>, but acts on the
+ * <code>$_REQUEST</code> superglobal array.
+ *
+ * @author Ethan Ruffing
+ * @since 2014-08-01
+ * @copyright (c) 2014, Ethan Ruffing
+ * @license http://opensource.org/licenses/MIT The MIT License
+ *
+ * @param string $index
+ * @return mixed If the specified index does exist in the <code>$_REQUEST</code>
+ *     superglobal array, this function will return the element at that index.
+ *     Otherwise, it will return <code>null</code>.
+ */
+function filter_request($index)
+{
+	$v = isset($_REQUEST[$index]) ? $_REQUEST[$index] : null;
 
 	return $v;
 }
