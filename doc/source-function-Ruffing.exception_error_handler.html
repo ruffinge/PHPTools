@@ -5,7 +5,7 @@
 	<meta name="generator" content="ApiGen 2.8.0">
 	<meta name="robots" content="noindex">
 
-	<title>File FilterTools.php | Tools</title>
+	<title>File ErrorTools.php | Tools</title>
 
 	<script type="text/javascript" src="resources/combined.js?1208723450"></script>
 	<script type="text/javascript" src="elementlist.js?3314048854"></script>
@@ -38,9 +38,9 @@
 
 			<h3>Functions</h3>
 			<ul>
-				<li><a href="function-Ruffing.exception_error_handler.html">exception_error_handler</a></li>
+				<li class="active"><a href="function-Ruffing.exception_error_handler.html">exception_error_handler</a></li>
 				<li><a href="function-Ruffing.filter_request.html">filter_request</a></li>
-				<li class="active"><a href="function-Ruffing.filter_session.html">filter_session</a></li>
+				<li><a href="function-Ruffing.filter_session.html">filter_session</a></li>
 			</ul>
 		</div>
 	</div>
@@ -66,7 +66,7 @@
 				<a href="namespace-Ruffing.html" title="Summary of Ruffing"><span>Namespace</span></a>
 			</li>
 			<li>
-				<a href="function-Ruffing.filter_session.html" title="Summary of Ruffing\filter_session"><span>Function</span></a>
+				<a href="function-Ruffing.exception_error_handler.html" title="Summary of Ruffing\exception_error_handler"><span>Function</span></a>
 			</li>
 		</ul>
 		<ul>
@@ -116,47 +116,30 @@
 </span><span id="27" class="l"><a class="l" href="#27">27: </a><span class="php-keyword1">namespace</span> Ruffing;
 </span><span id="28" class="l"><a class="l" href="#28">28: </a>
 </span><span id="29" class="l"><a class="l" href="#29">29: </a><span class="php-comment">/**
-</span></span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-comment"> * Acts similarly to the built-in &lt;code&gt;filter_input&lt;/code&gt;, but acts on the
-</span></span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment"> * &lt;code&gt;$_SESSION&lt;/code&gt; superglobal array.
-</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment"> *
-</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment"> * @author Ethan Ruffing
-</span></span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-comment"> * @since 2014-07-18
-</span></span><span id="35" class="l"><a class="l" href="#35">35: </a><span class="php-comment"> * @copyright (c) 2014, Ethan Ruffing
-</span></span><span id="36" class="l"><a class="l" href="#36">36: </a><span class="php-comment"> * @license http://opensource.org/licenses/MIT The MIT License
+</span></span><span id="30" class="l"><a class="l" href="#30">30: </a><span class="php-comment"> * This function is a wrapper to allow errors passed through {@link
+</span></span><span id="31" class="l"><a class="l" href="#31">31: </a><span class="php-comment"> * http://php.net/manual/en/errorfunc.configuration.php#ini.error-reporting
+</span></span><span id="32" class="l"><a class="l" href="#32">32: </a><span class="php-comment"> * Error Reporting} to be thrown as exceptions.
+</span></span><span id="33" class="l"><a class="l" href="#33">33: </a><span class="php-comment"> *
+</span></span><span id="34" class="l"><a class="l" href="#34">34: </a><span class="php-comment"> * Adapted from the PHP Manual page on the
+</span></span><span id="35" class="l"><a class="l" href="#35">35: </a><span class="php-comment"> * {@link http://php.net/manual/en/class.errorexception.php ErrorException}
+</span></span><span id="36" class="l"><a class="l" href="#36">36: </a><span class="php-comment"> * class.
 </span></span><span id="37" class="l"><a class="l" href="#37">37: </a><span class="php-comment"> *
-</span></span><span id="38" class="l"><a class="l" href="#38">38: </a><span class="php-comment"> * @param string $index
-</span></span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-comment"> * @return mixed If the specified index does exist in the &lt;code&gt;$_SESSION&lt;/code&gt;
-</span></span><span id="40" class="l"><a class="l" href="#40">40: </a><span class="php-comment"> *     superglobal array, this function will return the element at that index.
-</span></span><span id="41" class="l"><a class="l" href="#41">41: </a><span class="php-comment"> *     Otherwise, it will return &lt;code&gt;null&lt;/code&gt;.
-</span></span><span id="42" class="l"><a class="l" href="#42">42: </a><span class="php-comment"> */</span>
-</span><span id="43" class="l"><a class="l" href="#43">43: </a><span class="php-keyword1">function</span> <a id="_filter_session" href="#_filter_session">filter_session</a>(<span class="php-var">$index</span>)
-</span><span id="44" class="l"><a class="l" href="#44">44: </a>{
-</span><span id="45" class="l"><a class="l" href="#45">45: </a>    <span class="php-var">$v</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$_SESSION</span>[<span class="php-var">$index</span>]) ? <span class="php-var">$_SESSION</span>[<span class="php-var">$index</span>] : <span class="php-keyword1">null</span>;
-</span><span id="46" class="l"><a class="l" href="#46">46: </a>
-</span><span id="47" class="l"><a class="l" href="#47">47: </a>    <span class="php-keyword1">return</span> <span class="php-var">$v</span>;
-</span><span id="48" class="l"><a class="l" href="#48">48: </a>}
-</span><span id="49" class="l"><a class="l" href="#49">49: </a>
-</span><span id="50" class="l"><a class="l" href="#50">50: </a><span class="php-comment">/**
-</span></span><span id="51" class="l"><a class="l" href="#51">51: </a><span class="php-comment"> * Acts similarly to the built-in &lt;code&gt;filter_input&lt;/code&gt;, but acts on the
-</span></span><span id="52" class="l"><a class="l" href="#52">52: </a><span class="php-comment"> * &lt;code&gt;$_REQUEST&lt;/code&gt; superglobal array.
-</span></span><span id="53" class="l"><a class="l" href="#53">53: </a><span class="php-comment"> *
-</span></span><span id="54" class="l"><a class="l" href="#54">54: </a><span class="php-comment"> * @author Ethan Ruffing
-</span></span><span id="55" class="l"><a class="l" href="#55">55: </a><span class="php-comment"> * @since 2014-08-01
-</span></span><span id="56" class="l"><a class="l" href="#56">56: </a><span class="php-comment"> * @copyright (c) 2014, Ethan Ruffing
-</span></span><span id="57" class="l"><a class="l" href="#57">57: </a><span class="php-comment"> * @license http://opensource.org/licenses/MIT The MIT License
-</span></span><span id="58" class="l"><a class="l" href="#58">58: </a><span class="php-comment"> *
-</span></span><span id="59" class="l"><a class="l" href="#59">59: </a><span class="php-comment"> * @param string $index
-</span></span><span id="60" class="l"><a class="l" href="#60">60: </a><span class="php-comment"> * @return mixed If the specified index does exist in the &lt;code&gt;$_REQUEST&lt;/code&gt;
-</span></span><span id="61" class="l"><a class="l" href="#61">61: </a><span class="php-comment"> *     superglobal array, this function will return the element at that index.
-</span></span><span id="62" class="l"><a class="l" href="#62">62: </a><span class="php-comment"> *     Otherwise, it will return &lt;code&gt;null&lt;/code&gt;.
-</span></span><span id="63" class="l"><a class="l" href="#63">63: </a><span class="php-comment"> */</span>
-</span><span id="64" class="l"><a class="l" href="#64">64: </a><span class="php-keyword1">function</span> <a id="_filter_request" href="#_filter_request">filter_request</a>(<span class="php-var">$index</span>)
-</span><span id="65" class="l"><a class="l" href="#65">65: </a>{
-</span><span id="66" class="l"><a class="l" href="#66">66: </a>    <span class="php-var">$v</span> = <span class="php-keyword1">isset</span>(<span class="php-var">$_REQUEST</span>[<span class="php-var">$index</span>]) ? <span class="php-var">$_REQUEST</span>[<span class="php-var">$index</span>] : <span class="php-keyword1">null</span>;
-</span><span id="67" class="l"><a class="l" href="#67">67: </a>
-</span><span id="68" class="l"><a class="l" href="#68">68: </a>    <span class="php-keyword1">return</span> <span class="php-var">$v</span>;
-</span><span id="69" class="l"><a class="l" href="#69">69: </a>}
-</span><span id="70" class="l"><a class="l" href="#70">70: </a></span></code></pre>
+</span></span><span id="38" class="l"><a class="l" href="#38">38: </a><span class="php-comment"> * @author Ethan Ruffing
+</span></span><span id="39" class="l"><a class="l" href="#39">39: </a><span class="php-comment"> * @since 2014-08-01
+</span></span><span id="40" class="l"><a class="l" href="#40">40: </a><span class="php-comment"> * @copyright (c) 2014, Ethan Ruffing
+</span></span><span id="41" class="l"><a class="l" href="#41">41: </a><span class="php-comment"> * @license http://opensource.org/licenses/MIT The MIT License
+</span></span><span id="42" class="l"><a class="l" href="#42">42: </a><span class="php-comment"> *
+</span></span><span id="43" class="l"><a class="l" href="#43">43: </a><span class="php-comment"> * @param int $errno The error number (exception severity)
+</span></span><span id="44" class="l"><a class="l" href="#44">44: </a><span class="php-comment"> * @param string $errstr The error string (exception message)
+</span></span><span id="45" class="l"><a class="l" href="#45">45: </a><span class="php-comment"> * @param int $errfile The error file (exception file)
+</span></span><span id="46" class="l"><a class="l" href="#46">46: </a><span class="php-comment"> * @param int $errline The error line number (exception line number)
+</span></span><span id="47" class="l"><a class="l" href="#47">47: </a><span class="php-comment"> * @throws ErrorException
+</span></span><span id="48" class="l"><a class="l" href="#48">48: </a><span class="php-comment"> */</span>
+</span><span id="49" class="l"><a class="l" href="#49">49: </a><span class="php-keyword1">function</span> <a id="_exception_error_handler" href="#_exception_error_handler">exception_error_handler</a>(<span class="php-var">$errno</span>, <span class="php-var">$errstr</span>, <span class="php-var">$errfile</span>, <span class="php-var">$errline</span>)
+</span><span id="50" class="l"><a class="l" href="#50">50: </a>{
+</span><span id="51" class="l"><a class="l" href="#51">51: </a>    <span class="php-keyword1">throw</span> <span class="php-keyword1">new</span> ErrorException(<span class="php-var">$errstr</span>, <span class="php-num">0</span>, <span class="php-var">$errno</span>, <span class="php-var">$errfile</span>, <span class="php-var">$errline</span>);
+</span><span id="52" class="l"><a class="l" href="#52">52: </a>}
+</span><span id="53" class="l"><a class="l" href="#53">53: </a></span></code></pre>
 
 	<div id="footer">
 		Tools API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
