@@ -65,7 +65,7 @@ function exception_error_handler($errno, $errstr, $errfile, $errline)
  */
 function format_stack_trace($stack)
 {
-	$s = "<table>";
+	$s = "<table border='1' cellspacing='0' cellpadding='2' style='font-size: 9pt;'>";
 
 	$s .= "<thead>";
 	$s .= "<tr>";
