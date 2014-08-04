@@ -40,10 +40,10 @@ namespace Ruffing;
  * @copyright (c) 2014, Ethan Ruffing
  * @license http://opensource.org/licenses/MIT The MIT License
  *
- * @param int $errno The error number (exception severity)
+ * @param integer $errno The error number (exception severity)
  * @param string $errstr The error string (exception message)
- * @param int $errfile The error file (exception file)
- * @param int $errline The error line number (exception line number)
+ * @param integer $errfile The error file (exception file)
+ * @param integer $errline The error line number (exception line number)
  * @throws ErrorException
  */
 function exception_error_handler($errno, $errstr, $errfile, $errline)
